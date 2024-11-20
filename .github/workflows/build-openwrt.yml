@@ -95,6 +95,8 @@ jobs:
         cd openwrt
         make defconfig
         make download -j8
+        mkdir bin/targets/x86/64
+        cp .config bin/targets/x86/64/.config
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
