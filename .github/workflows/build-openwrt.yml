@@ -13,11 +13,7 @@ name: Build OpenWrt
 on:
   repository_dispatch:
   workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'SSH connection to Actions'
-        required: false
-        default: 'false'
+
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt.git
@@ -36,7 +32,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-22.04
-    
+
     steps:
       - name: Before freeing up disk space
       run: |
