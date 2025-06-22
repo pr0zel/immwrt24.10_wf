@@ -13,6 +13,11 @@
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 
-sed -i 's/CONFIG_CPU_FREQ_DEFAULT_GOV_ONDEMAND=y/CONFIG_CPU_FREQ_DEFAULT_GOV_SCHEDUTIL=y/g' target/linux/x86/64/config-6.6
-sed -i 's/# CONFIG_CPU_FREQ_GOV_CONSERVATIVE is not set/CONFIG_CPU_FREQ_GOV_CONSERVATIVE=y/g' target/linux/x86/64/config-6.6
+#sed -i 's/CONFIG_CPU_FREQ_DEFAULT_GOV_ONDEMAND=y/CONFIG_CPU_FREQ_DEFAULT_GOV_SCHEDUTIL=y/g' target/linux/x86/64/config-6.6
+#sed -i 's/# CONFIG_CPU_FREQ_GOV_CONSERVATIVE is not set/CONFIG_CPU_FREQ_GOV_CONSERVATIVE=y/g' target/linux/x86/64/config-6.6
+echo "" >> target/linux/x86/64/config-6.6
+echo "CONFIG_CPU_FREQ_GOV_CONSERVATIVE=y" >> target/linux/x86/64/config-6.6
+echo "" >> target/linux/x86/64/config-6.6
+echo "CONFIG_CPU_FREQ_DEFAULT_GOV_SCHEDUTIL=y" >> target/linux/x86/64/config-6.6
+
 wget https://raw.githubusercontent.com/pr0zel/immortalwrt/refs/heads/master/target/linux/x86/base-files/lib/preinit/01_sysinfo -O target/linux/x86/base-files/lib/preinit/01_sysinfo
